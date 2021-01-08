@@ -1,0 +1,29 @@
+<h1>All users</h1>
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Email</th>
+    <th>Username</th>
+    <th>Count</th>
+    <th colspan="2">Profile Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.username %></td>
+      <td><%= pluralize(user.articles.count, "articles") %></td>
+      <td><%= link_to 'View', user %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Article', new_article_path %>
